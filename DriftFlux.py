@@ -1,5 +1,6 @@
 import numpy as np
-
+import pandas as pd
+from icecream import ic
 #Variables Defined
 # Jg = superficial gas velocity
 # Jl = superficial liquid velocity
@@ -28,6 +29,10 @@ import numpy as np
 #theta = inclination angle
 #p = average pressure
 # upflow boolian
+excelpage=pd.read_excel('kokal_results.xlsx')
+
+
+
 
 
 pf=49.3 #lbm/ft3
@@ -93,14 +98,15 @@ if Reg >= 0:
     Cov= L/(K0 + (1-K0)*alpha**r)
     Coh=((1+alpha**.05)*(1-alpha)**2)Cov
     Co=Fr*Cov+(1-Fr)*Coh
+    alpha=jg/(Co*(jg+jl)+Vgj)
 
 
 
 
 
 
-else:
-    Fr=max([1,(90-theta/10)])
+# else:
+#     Fr=max([1,(90-theta/10)])
 
 
 
